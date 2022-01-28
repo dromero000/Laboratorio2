@@ -32,9 +32,8 @@ public class Animal {
     public void imprimir(){
         System.out.println("[Nombre Científico: "+ nombreCient+", Nombre Común: "+ nombreComun+", Hábitat: "+
                 habitat+", Alimentación: "+alimento+", Descripción de Rasgos: "+rasgos+", Distribución Geográfica: "+
-                distGeo+", Vida: "+vida);
+                distGeo+", Vida: "+vida+"]");
     }
-    
     
     
 }

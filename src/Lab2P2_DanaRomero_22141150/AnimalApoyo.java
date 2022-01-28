@@ -190,12 +190,16 @@ public class AnimalApoyo {
     
     //Función de alimentación
     public void alimentar(){
+        try{
         System.out.print("Seleccione la posición del animal que se alimentará: ");
         int posicionA= leer.nextInt();
         System.out.print("Seleccione la posición del animal que será devorado: ");
         int posicionD= leer.nextInt();
         animalLista.get(posicionA).vida+=animalLista.get(posicionD).vida;
         animalLista.remove(posicionD);
+        }catch (Exception e){
+            System.out.println("Los valores ingresados no son correctos");
+        }
     }
     
 }
