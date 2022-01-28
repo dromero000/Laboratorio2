@@ -41,8 +41,13 @@ public class AnimalApoyo {
             String rasgos = leer.next();
             System.out.print("Ingrese distribución geográfica: ");
             String distGeo = leer.next();
+            int vida;
+            do{
             System.out.print("Ingrese vida: ");
-            int vida=leer.nextInt();
+            vida=leer.nextInt();
+            if (vida<=0)
+                    System.out.println("El valor de vida debe ser mayor a 0. Intente de nuevo");
+            }while(vida<=0);
             animalLista.add(new Animal(nombreCient, nombreComun, habitat, alimento, rasgos, distGeo, vida));
         }else{
             System.out.println("El nombre científico ingresado no es único. No se puede registrar");
@@ -107,6 +112,8 @@ public class AnimalApoyo {
         Animal animal = nombreUnico(nombreCient);
         int posicion=animalLista.indexOf(animal);
         if (animal!=null){
+            System.out.print("Ingrese nombre científico: ");
+            animalLista.get(posicion).nombreCient=leer.next();
             System.out.print("Ingrese nombre común: ");
             animalLista.get(posicion).nombreComun= leer.next();
             System.out.print("Ingrese hábitat: ");
@@ -139,6 +146,7 @@ public class AnimalApoyo {
         int posicion=animalLista.indexOf(animal);
         if (animal!=null){
             System.out.println("Atributos:\n1 - Nombre Científico\n2 - Nombre Común\n3 - Hábitat\n4 - Alimentación\n5 - Descripción de Rasgos\n6 - Distribución Geográfica\n7 - Vida");
+            System.out.print("Seleccionar una opción: ");
             int opcion=leer.nextInt();
             switch(opcion){
                 case 1:
