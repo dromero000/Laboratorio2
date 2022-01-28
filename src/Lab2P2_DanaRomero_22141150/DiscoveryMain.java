@@ -30,9 +30,9 @@ public class DiscoveryMain {
                 case 1:
                     System.out.println("---Registrar---");
                     proceso.registrar();
-                    
                     break;
                 case 2:
+                    proceso.eliminar();
                     break;
                 case 3:
                     break;
@@ -45,10 +45,13 @@ public class DiscoveryMain {
                     int opcion2=leer.nextInt();
                     switch (opcion2){
                         case 1:
+                            proceso.imprimirPosicion();
                             break;
                         case 2:
+                            proceso.imprimirTodos();
                             break;
                         case 3:
+                            proceso.imprimirNomCien();
                             break;
                     }
                     break;

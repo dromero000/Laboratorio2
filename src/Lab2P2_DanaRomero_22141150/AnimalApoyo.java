@@ -83,4 +83,18 @@ public class AnimalApoyo {
         //Si no existe el nombre, retornar null
         return null;
     }
+    
+    //Función para poder elimiar un animal por su nombre científico
+    public boolean eliminar(){
+        System.out.println("Ingrese nombre científico a eliminar: ");
+        String nombreCient=leer.nextLine();
+        Animal animal = nombreUnico(nombreCient);
+        if (animal!=null){
+            animalLista.remove(animalLista.indexOf(animal));
+            return true;
+        }
+        System.out.println("El nombre científico ingresado no esta registrado");
+        return false;
+    }
+    
 }
