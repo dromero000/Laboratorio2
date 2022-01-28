@@ -131,6 +131,55 @@ public class AnimalApoyo {
 
     }
     
+    //Función para editar solo un atributo
+    public void editarAtributo(){
+        System.out.println("Ingrese nombre científico a editar: ");
+        String nombreCient=leer.next();
+        Animal animal = nombreUnico(nombreCient);
+        int posicion=animalLista.indexOf(animal);
+        if (animal!=null){
+            System.out.println("Atributos:\n1 - Nombre Científico\n2 - Nombre Común\n3 - Hábitat\n4 - Alimentación\n5 - Descripción de Rasgos\n6 - Distribución Geográfica\n7 - Vida");
+            int opcion=leer.nextInt();
+            switch(opcion){
+                case 1:
+                    System.out.print("Ingrese nombre científico: ");
+                    animalLista.get(posicion).nombreCient= leer.next();
+                    break;
+                case 2:
+                    System.out.print("Ingrese nombre común: ");
+                    animalLista.get(posicion).nombreComun= leer.next();
+                    break;
+                case 3:
+                    System.out.print("Ingrese hábitat: ");
+                    animalLista.get(posicion).habitat= leer.next();
+                    break;
+                case 4:
+                    System.out.print("Ingrese alimentación: ");
+                    animalLista.get(posicion).alimento= leer.next();
+                    break;
+                case 5:
+                    System.out.print("Ingrese descripción de rasgos: ");
+                    animalLista.get(posicion).rasgos= leer.next();
+                    break;
+                case 6:
+                    System.out.print("Ingrese distribución geográfica: ");
+                    animalLista.get(posicion).distGeo= leer.next();
+                    break;
+                case 7:
+                    System.out.print("Ingrese vida: ");
+                    int vida =leer.nextInt();
+                    if (vida>0){
+                        animalLista.get(posicion).vida= vida;
+                    }else{
+                        System.out.println("Vida tiene que ser mayor que 0. El valor ingresado no será guardado");
+                    }
+                    break; 
+            }
+        }else{
+            System.out.println("El nombre científico ingresado no existe");
+        }
+    }
+    
     //Función de alimentación
     public void alimentar(){
         System.out.print("Seleccione la posición del animal que se alimentará: ");

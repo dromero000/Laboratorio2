@@ -44,6 +44,7 @@ public class DiscoveryMain {
                     switch(opcion3){
                         case 1:
                             System.out.println("Editar por Atributo");
+                            proceso.editarAtributo();
                             break;
                         case 2:
                             System.out.println("Editar Todo");
