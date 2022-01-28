@@ -49,7 +49,7 @@ public class AnimalApoyo {
     
     //Función para imprimir todos los datos de los animales
     public void imprimirPosicion(){
-        System.out.print("La lista tiene "+animalLista.size()+"posiciones. Ingrese la posición a imprimir: ");
+        System.out.print("La lista tiene "+animalLista.size()+" posiciones. Ingrese la posición a imprimir: ");
         int posicion = leer.nextInt();
         animalLista.get(posicion).imprimir();
     }
@@ -97,4 +97,15 @@ public class AnimalApoyo {
         return false;
     }
     
+    //Función para editar
+    
+    //Función de alimentación
+    public void alimentar(){
+        System.out.print("Seleccione la posición del animal que se alimentará: ");
+        int posicionA= leer.nextInt();
+        System.out.println("Seleccione la posición del animal que será devorado: ");
+        int posicionD= leer.nextInt();
+        animalLista.get(posicionA).vida+=animalLista.get(posicionD).vida;
+        animalLista.remove(posicionD);
+    }
 }
