@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Dana Romero
  */
 public class AnimalApoyo {
-    Scanner leer = new Scanner (System.in);
+    Scanner leer = new Scanner (System.in).useDelimiter("\n");
     ArrayList<Animal> animalLista = new ArrayList<Animal>();
     
     //Constructor
@@ -29,18 +29,18 @@ public class AnimalApoyo {
     //Función para registrar un nuevo animal
     public void registrar(){
         System.out.print("Ingrese nombre científico: ");
-        String nombreCient = leer.nextLine();
+        String nombreCient = leer.next();
         if (nombreUnico(nombreCient)==null){
             System.out.print("Ingrese nombre común: ");
-            String nombreComun = leer.nextLine();
+            String nombreComun = leer.next();
             System.out.print("Ingrese hábitat: ");
-            String habitat = leer.nextLine();
+            String habitat = leer.next();
             System.out.print("Ingrese alimentación: ");
-            String alimento = leer.nextLine();
+            String alimento = leer.next();
             System.out.print("Ingrese descripción de rasgos: ");
-            String rasgos = leer.nextLine();
+            String rasgos = leer.next();
             System.out.print("Ingrese distribución geográfica: ");
-            String distGeo = leer.nextLine();
+            String distGeo = leer.next();
             System.out.print("Ingrese vida: ");
             int vida=leer.nextInt();
             animalLista.add(new Animal(nombreCient, nombreComun, habitat, alimento, rasgos, distGeo, vida));
@@ -67,7 +67,7 @@ public class AnimalApoyo {
     //Función para imprimir por nombre Científico
     public void imprimirNomCien(){
         System.out.print("Ingrese el nombre científico: ");
-        String nombreCient = leer.nextLine();
+        String nombreCient = leer.next();
         Animal animal = nombreUnico(nombreCient);
         if (animal!=null){
             animal.imprimir();
@@ -90,25 +90,55 @@ public class AnimalApoyo {
     //Función para poder elimiar un animal por su nombre científico
     public boolean eliminar(){
         System.out.println("Ingrese nombre científico a eliminar: ");
-        String nombreCient=leer.nextLine();
+        String nombreCient=leer.next();
         Animal animal = nombreUnico(nombreCient);
         if (animal!=null){
             animalLista.remove(animalLista.indexOf(animal));
             return true;
         }
-        System.out.println("El nombre científico ingresado no esta registrado");
+        System.out.println("El nombre científico ingresado no está registrado");
         return false;
     }
     
-    //Función para editar
+    //Función para editar por atributo
+    public void editarTodo(){
+        System.out.println("Ingrese nombre científico a editar: ");
+        String nombreCient=leer.next();
+        Animal animal = nombreUnico(nombreCient);
+        int posicion=animalLista.indexOf(animal);
+        if (animal!=null){
+            System.out.print("Ingrese nombre común: ");
+            animalLista.get(posicion).nombreComun= leer.next();
+            System.out.print("Ingrese hábitat: ");
+            animalLista.get(posicion).habitat= leer.next();
+            System.out.print("Ingrese alimentación: ");
+            animalLista.get(posicion).alimento= leer.next();
+            System.out.print("Ingrese descripción de rasgos: ");
+            animalLista.get(posicion).rasgos= leer.next();
+            System.out.print("Ingrese distribución geográfica: ");
+            animalLista.get(posicion).distGeo= leer.next();
+            System.out.print("Ingrese vida: ");
+            int vida =leer.nextInt();
+            if (vida>0){
+                animalLista.get(posicion).vida= vida;
+            }else{
+                System.out.println("Vida tiene que ser mayor que 0. El valor ingresado no será guardado");
+            }
+        }else{
+            System.out.println("El nombre científico ingresado no existe");
+        }
+        
+
+    }
     
     //Función de alimentación
     public void alimentar(){
         System.out.print("Seleccione la posición del animal que se alimentará: ");
         int posicionA= leer.nextInt();
-        System.out.println("Seleccione la posición del animal que será devorado: ");
+        System.out.print("Seleccione la posición del animal que será devorado: ");
         int posicionD= leer.nextInt();
         animalLista.get(posicionA).vida+=animalLista.get(posicionD).vida;
         animalLista.remove(posicionD);
     }
+    
 }
