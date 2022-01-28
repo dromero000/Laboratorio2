@@ -13,15 +13,18 @@ import java.util.Scanner;
  * @author Dana Romero
  */
 public class AnimalApoyo {
+    Scanner leer = new Scanner (System.in);
+    ArrayList<Animal> animalLista = new ArrayList<Animal>();
     
     //Constructor
     public AnimalApoyo(){
-    
+    animalLista.add(new Animal("Pionus Senilis", "Loro Corona Blanca","Bosques, plantaciones","Frutos y semillas","Tamaño medio, falta de plumaje alrededor de los ojos","Entre Panamá y México", 40));
+    animalLista.add(new Animal("Ateles fusciceps", "Mono Araña de Cabeza Negra","Bosque húmedo tropical y subtropical ","Frutos, hojas tieranas y semillas","Mide 40 cm y pesa 9kg","Ecuador", 20));
+    animalLista.add(new Animal("Litoria caerulea", "Rana arborícola de White","Aguas tranquilas ","Insectos y arañas","Mide 10 cm, color marrón y café","Noroeste Australia", 16));
     }
     
-    Scanner leer = new Scanner (System.in);
     
-    ArrayList<Animal> animalLista = new ArrayList<Animal>();
+
     
     //Función para registrar un nuevo animal
     public void registrar(){

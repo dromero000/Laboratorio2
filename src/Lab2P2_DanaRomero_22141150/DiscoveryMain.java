@@ -37,6 +37,10 @@ public class DiscoveryMain {
                 case 3:
                     break;
                 case 4:
+                    System.out.println("---Alimentar---");
+                    proceso.alimentar();
+                    break;
+                case 5:
                     System.out.println("---Ver Datos---");
                     System.out.println("1 - Imprimir por posición de la lista\n" +
                     "2 - Imprimir lista completa\n" +
